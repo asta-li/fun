@@ -83,8 +83,8 @@ class Game extends React.Component {
   }
 
   componentDidMount() {
-    // const apiUrl = 'https://api.github.com/users/hacktivist123/repos';
-    const apiUrl = 'http://192.168.1.9:3000/test';
+    // const apiUrl = 'http://192.168.1.9:3000/test';
+    const apiUrl = 'https://asta-li.wl.r.appspot.com/test';
     fetch(apiUrl)
       .then(response => response.json())
       // .then(data => this.setState({ data }));

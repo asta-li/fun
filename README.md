@@ -6,9 +6,25 @@ This project was created using the following helpful links:
 
 ## Commands
 
-### `npm start`
+### Run the Go server
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Run the following to build the static React frontend and launch the Go server.
+```
+cd client
+npm run build
+cd ../server
+go run main.go
+```
 
+Open [http://localhost:3000](http://localhost:3000) to view in the browser.
+
+### Run in React development mode
+
+After starting the Go server, run the following to run the client code in development mode.
+```
+cd client
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3001) to view in the browser.
 

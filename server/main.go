@@ -5,6 +5,7 @@ import (
   "log"
   "net/http"
   "time"
+  "os"
 )
 
 type DateTime struct {
@@ -60,7 +61,13 @@ func main() {
 
   http.HandleFunc("/test", helloWorldHandler)
 
-  // Start the web server at port 3000.
-  log.Println("Now server is running on port 3000")
-  log.Fatal(http.ListenAndServe(":3000", nil))
+  // Start the web server, defaulting to port 3000.
+    port := os.Getenv("PORT")
+    if port == "" {
+        port = "3000"
+    }
+    log.Println("Running server on port %s", port)
+    if err := http.ListenAndServe(":"+port, nil); err != nil {
+        log.Fatal(err)
+    }
 }

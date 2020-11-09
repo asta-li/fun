@@ -1,0 +1,19 @@
+runtime: go114
+
+main: ./server
+
+instance_class: F2
+
+env_variables:
+  BUCKET_NAME: "asta-li"
+
+handlers:
+# Serve all static files with url ending with a file extension
+- url: /(.*\..+)$
+  static_files: build/\1
+  upload: client/build/(.*\..+)$
+
+# Catch all handlers to index.html
+- url: /.*
+  static_files: build/index.html
+  upload: client/build/index.html
